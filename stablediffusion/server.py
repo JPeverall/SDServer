@@ -1,4 +1,5 @@
-from auth_token import auth_token
+import os
+from dotenv import load_dotenv
 import nltk
 import nltk.corpus
 from fastapi import FastAPI, Response
@@ -8,6 +9,9 @@ from diffusers import StableDiffusionPipeline
 from io import BytesIO
 from torch.cuda.amp import autocast
 import base64
+load_dotenv()
+auth_token = os.getenv('auth_token')
+print(auth_token)
 
 app = FastAPI()
 
